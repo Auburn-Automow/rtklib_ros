@@ -11,12 +11,10 @@ include($ENV{ROS_ROOT}/core/rosbuild/rosbuild.cmake)
 
 rosbuild_init()
 
-#set the default path for built executables to the "bin" directory
-set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
-#set the default path for built libraries to the "lib" directory
+set (CMAKE_C_FLAGS      "-DNFREQ=3 -Wall -Wno-missing-field-initializers -DLAPACK -O3 -ansi -pedantic")
+
+
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
-
-
 include_directories(${PROJECT_SOURCE_DIR}/src/)
 set(RTKLIB_SRCS ${PROJECT_SOURCE_DIR}/src/rtkcmn.c)
 list(APPEND RTKLIB_SRCS ${PROJECT_SOURCE_DIR}/src/rtksvr.c

@@ -11,10 +11,8 @@ include $(shell rospack find mk)/cmake.mk
 rtklib: $(SOURCE_DIR)/unpacked
 	-mkdir include
 	cp $(SOURCE_DIR)/src/rtklib.h include
+	-mkdir src
 	cp -r $(SOURCE_DIR)/src/* src
 
-clean:
-	-rm -rf src $(SOURCE_DIR)
-
 wipe: clean
-	-rm -rf include lib build
+	-rm -rf src include lib

@@ -10,7 +10,7 @@
   <url>http://ros.org/wiki/rtklib</url>
 
   <export>
-      <cpp cflags="-I${prefix}/src -DNFREQ=3 -DLAPACK" lflags="-lm -lpthread -llapack -lblas"/>
+      <cpp cflags="-I${prefix}/include" lflags="-L${prefix}/lib -Wl,-rpath,${prefix}/lib -lrtklib"/>
   </export>
 
 </package>
