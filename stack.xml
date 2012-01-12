@@ -1,0 +1,9 @@
+<stack>
+  <description brief="rtklib_ros">rtklib_ros</description>
+  <author>Maintained by Michael Carroll</author>
+  <license>BSD</license>  
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/rtklib_ros</url>
+  <depend stack="ros" />
+
+</stack>

@@ -1,0 +1,14 @@
+<package>
+  <description brief="rtk_node">
+
+     rtk_node
+
+  </description>
+  <author>Michael Carroll</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/rtk_node</url>
+
+</package>
+
+
