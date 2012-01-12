@@ -9,6 +9,7 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/rtk_node</url>
 
+  <depend package="roscpp"/>
   <depend package="rtklib"/>
 
 </package>
