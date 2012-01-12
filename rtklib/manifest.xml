@@ -9,6 +9,10 @@
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/rtklib</url>
 
+  <export>
+      <cpp cflags="-I${prefix}/src -DNFREQ=3 -DLAPACK" lflags="-lm -lpthread -llapack -lblas"/>
+  </export>
+
 </package>
 
 

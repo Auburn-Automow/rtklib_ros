@@ -16,14 +16,36 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/bin)
 #set the default path for built libraries to the "lib" directory
 set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 
-#uncomment if you have defined messages
-#rosbuild_genmsg()
-#uncomment if you have defined services
-#rosbuild_gensrv()
 
-#common commands for building c++ executables and libraries
-#rosbuild_add_library(${PROJECT_NAME} src/example.cpp)
-#target_link_libraries(${PROJECT_NAME} another_library)
+include_directories(${PROJECT_SOURCE_DIR}/src/)
+set(RTKLIB_SRCS ${PROJECT_SOURCE_DIR}/src/rtkcmn.c)
+list(APPEND RTKLIB_SRCS ${PROJECT_SOURCE_DIR}/src/rtksvr.c
+                        ${PROJECT_SOURCE_DIR}/src/rtkpos.c
+                        ${PROJECT_SOURCE_DIR}/src/geoid.c
+                        ${PROJECT_SOURCE_DIR}/src/solution.c
+                        ${PROJECT_SOURCE_DIR}/src/lambda.c
+                        ${PROJECT_SOURCE_DIR}/src/sbas.c
+                        ${PROJECT_SOURCE_DIR}/src/stream.c
+                        ${PROJECT_SOURCE_DIR}/src/rcvraw.c
+                        ${PROJECT_SOURCE_DIR}/src/rtcm.c
+                        ${PROJECT_SOURCE_DIR}/src/preceph.c
+                        ${PROJECT_SOURCE_DIR}/src/options.c
+                        ${PROJECT_SOURCE_DIR}/src/pntpos.c
+                        ${PROJECT_SOURCE_DIR}/src/ppp.c
+                        ${PROJECT_SOURCE_DIR}/src/rcv/novatel.c
+                        ${PROJECT_SOURCE_DIR}/src/rcv/ublox.c
+                        ${PROJECT_SOURCE_DIR}/src/rcv/ss2.c
+                        ${PROJECT_SOURCE_DIR}/src/rcv/crescent.c
+                        ${PROJECT_SOURCE_DIR}/src/rcv/skytraq.c
+                        ${PROJECT_SOURCE_DIR}/src/rcv/gw10.c
+                        ${PROJECT_SOURCE_DIR}/src/rcv/javad.c
+                        ${PROJECT_SOURCE_DIR}/src/ephemeris.c
+                        ${PROJECT_SOURCE_DIR}/src/rinex.c
+                        ${PROJECT_SOURCE_DIR}/src/ionex.c)
+
+rosbuild_add_library(${PROJECT_NAME} ${RTKLIB_SRCS})
+target_link_libraries(${PROJECT_NAME} pthread lapack blas)
+
 #rosbuild_add_boost_directories()
 #rosbuild_link_boost(${PROJECT_NAME} thread)
 #rosbuild_add_executable(example examples/example.cpp)
